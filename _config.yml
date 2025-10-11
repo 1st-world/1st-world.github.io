@@ -6,45 +6,58 @@ theme: jekyll-theme-chirpy
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
+# 웹 페이지의 기본 언어 설정
 lang: en
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
-timezone:
+# 글 발행 시간 등을 표시하기 위한 시간대 설정
+timezone: Asia/Seoul
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+# 블로그 제목 입력
+title: 1st-world
 
-tagline: A text-focused Jekyll theme # it will display as the subtitle
+# 블로그 제목 하단에 표시할 부제(subtitle) 혹은 짧은 소개 입력
+tagline: Hello World! 나의 첫 번째 세계
 
+# 검색 엔진에 노출할 블로그 설명 입력
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  웹 및 앱 개발, 클라우드, AI 등 프로그래밍 관련 다양한 내용을 기록하고 공유하는 블로그입니다.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: ""
+# 내 블로그 주소 입력 (끝에 '/' 붙이지 말 것)
+url: "https://1st-world.github.io"
 
 github:
-  username: github_username # change to your GitHub username
+  # 내 GitHub 아이디(username) 입력
+  username: 1st-world
 
 twitter:
-  username: twitter_username # change to your Twitter username
+  # 내 Twitter 아이디 입력 (계정이 없거나 입력하기 싫으면 무시)
+  username: 
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
-  email: example@domain.com # change to your email address
+  # 글 작성 시 기본 저자 및 Footer 내 저작권에 표시할 이름 입력
+  name: 1st-world
+  # 이메일 주소 입력
+  email: 202178078@yiu.ac.kr
+  # 소셜 링크 목록 (프로필 영역에 아이콘으로 표시)
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your Twitter homepage
-    - https://github.com/username # change to your GitHub homepage
+    # 첫 번째 링크는 Footer 내 저작권자 이름에 연결
+    # - https://twitter.com/username # change to your Twitter homepage
+    - https://github.com/1st-world
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
 # Site Verification Settings
+# Google, Bing 등 검색 엔진에 블로그 등록 및 소유권 인증 시 설정
 webmaster_verifications:
   google: # fill in your Google verification code
   bing: # fill in your Bing verification code
@@ -57,6 +70,7 @@ webmaster_verifications:
 # The end of `jekyll-seo-tag` settings
 
 # Web Analytics Settings
+# 방문자 집계 등을 위한 웹 분석 도구 설정
 analytics:
   google:
     id: # fill in your Google Analytics ID
@@ -88,6 +102,7 @@ pageviews:
 #     light — Use the light color scheme
 #     dark — Use the dark color scheme
 #
+# 테마 색상 모드를 고정하려면 light 또는 dark 중 선택 (비워두면 시스템 설정에 따르고 좌측 하단에 토글 버튼 제공)
 theme_mode: # [light | dark]
 
 # The CDN endpoint for media resources.
@@ -98,17 +113,21 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+# 사이드바에 표시할 프로필 사진 (/assets/img/ 폴더에 사진 업로드 후 경로 입력)
+avatar: /assets/img/1st-world.png
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
+# 카카오톡, 페이스북 등 소셜 서비스로 블로그 링크 공유 시 표시할 대표 이미지
 social_preview_image: # string, local or CORS resources
 
 # boolean type, the global switch for TOC in posts.
 toc: true
 
+# 댓글 기능 설정
 comments:
   # Global switch for the post-comment system. Keeping it empty means disabled.
+  # 사용할 댓글 시스템 선택 (공식 샘플은 giscus 사용: https://giscus.app/ko)
   provider: # [disqus | utterances | giscus]
   # The provider options are as follows:
   disqus:
@@ -119,10 +138,10 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: # <gh-username>/<repo>
-    repo_id:
-    category:
-    category_id:
+    repo: # <gh-username>/<repo> # 댓글이 저장될 GitHub 저장소 (e.g., '아이디/저장소 이름')
+    repo_id: # giscus 설정 페이지에서 발급
+    category: # giscus 설정 페이지에서 발급
+    category_id: # giscus 설정 페이지에서 발급
     mapping: # optional, default to 'pathname'
     strict: # optional, default to '0'
     input_position: # optional, default to 'bottom'
@@ -137,6 +156,7 @@ assets:
     # only works if `assets.self_host.enabled` is 'true'
     env: # [development | production]
 
+# 블로그를 모바일 환경에서 앱처럼 '홈 화면에 추가' 가능하게 하는 기능
 pwa:
   enabled: true # The option for PWA feature (installable)
   cache:
@@ -150,6 +170,7 @@ pwa:
 paginate: 10
 
 # The base URL of your site
+# 블로그 주소에서 도메인 뒤에 붙는 하위 경로 지정 필요 시 입력 (블로그가 도메인의 최상위 경로에 있으면 빈 문자열 유지)
 baseurl: ""
 
 # ------------ The following options are not recommended to be modified ------------------
