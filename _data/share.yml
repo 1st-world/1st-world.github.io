@@ -2,10 +2,6 @@
 #  Icons from <https://fontawesome.com/>
 
 platforms:
-  - type: KakaoTalk
-    icon: "fa-brands fa-kakaotalk"
-    link: "https://sharer.kakao.com/talk/friends/picker/link?url=URL"
-
   - type: Twitter
     icon: "fa-brands fa-square-x-twitter"
     link: "https://twitter.com/intent/tweet?text=TITLE&url=URL"
@@ -17,6 +13,10 @@ platforms:
   - type: Telegram
     icon: "fab fa-telegram"
     link: "https://t.me/share/url?url=URL&text=TITLE"
+
+  - type: Email
+    icon: "fa-solid fa-envelope"
+    link: "mailto:?subject=TITLE&body=URL"
 
   # Uncomment below if you need to.
   #
