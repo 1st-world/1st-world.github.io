@@ -14,10 +14,6 @@ platforms:
     icon: "fab fa-telegram"
     link: "https://t.me/share/url?url=URL&text=TITLE"
 
-  - type: Email
-    icon: "fa-solid fa-envelope"
-    link: "mailto:?subject=TITLE&body=URL"
-
   # Uncomment below if you need to.
   #
   # - type: Linkedin
