@@ -148,3 +148,8 @@ Unless you specified the output path, the generated site files will be placed in
 [dev-containers]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 [dc-clone-in-vol]: https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume
 [dc-open-in-container]: https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-an-existing-folder-in-a-container
+
+---
+
+> This is a demo post for instructions on how to use the blog theme.
+{: .prompt-info }

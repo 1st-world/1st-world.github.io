@@ -36,3 +36,8 @@ The following table will help you understand the changes to the favicon files:
 {: .prompt-info }
 
 The next time you build the site, the favicon will be replaced with a customized edition.
+
+---
+
+> This is a demo post for instructions on how to use the blog theme.
+{: .prompt-info }
