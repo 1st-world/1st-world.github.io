@@ -8,6 +8,7 @@
 
 - type: discord
   icon: "fa-brands fa-discord"
+  url: 'https://discord.gg/5Nq5bTwcYf' # Fill with your Discord invite link
 
 - type: email
   icon: "fas fa-envelope"
