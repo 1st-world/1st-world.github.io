@@ -59,12 +59,13 @@ social:
 # Site Verification Settings
 # Google, Bing 등 검색 엔진에 블로그 등록 및 소유권 인증 시 설정
 webmaster_verifications:
-  google: # fill in your Google verification code
+  google: AHACrK4q30xBYuNyRkXzOXxYTVA5dRBlJTCSjSoU_xE
   bing: # fill in your Bing verification code
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code
   baidu: # fill in your Baidu verification code
   facebook: # fill in your Facebook verification code
+  naver: fc3834c49ac7ee77faa834f2c2683d9ad081687c
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
