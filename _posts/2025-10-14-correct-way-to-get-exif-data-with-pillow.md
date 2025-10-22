@@ -2,6 +2,7 @@
 title: "Pillow로 EXIF 데이터를 불러오는 올바른 방법"
 author: 1st-world
 date: 2025-10-15 01:30:00 +0900
+last_modified_at: 2025-10-20 01:10:00 +0900
 categories: [Python]
 tags: [pillow, ifd, exif, datetime]
 pin: false
@@ -80,7 +81,7 @@ date_str = exif_ifd.get(36867)  # 36867은 DateTimeOriginal 태그 ID
 
 - **오류 발생 가능성:** 복잡한 숫자가 오타를 유발할 수 있고, 오타가 발생해도 인지하기 어렵습니다.
 
-다행히 Pillow는 이 문제를 해결하기 위해 `PIL.ExifTags` 모듈을 제공합니다. 이 모듈의 `TAGS` 딕셔너리에는 `'ExifOffset': 34665` 와 같이 태그 이름과 태그 ID가 짝지어 저장되어 있으므로 더 이상 의미 없는 숫자를 외울 필요가 없습니다.
+다행히 Pillow는 이 문제를 해결하기 위해 `PIL.ExifTags` 모듈을 제공합니다. 이 모듈의 `TAGS` 딕셔너리에는 `'ExifOffset': 34665` 와 같이 태그 이름과 태그 ID가 짝지어 저장되어 있으므로 이걸 활용하면 더 이상 의미 없는 숫자를 외울 필요가 없습니다.
 
 ```python
 from PIL import ExifTags
@@ -105,7 +106,7 @@ print(f"'DateTimeOriginal'의 태그 ID: {date_original_id}")
 
 ## 최종 구현: 안정성과 가독성을 모두 잡은 코드
 
-이제 위에서 다룬 내용을 종합하여, Pillow 공식 API와 `ExifTags` 모듈을 사용한 이상적인 코드를 쓸 수 있습니다. 아래 내용은 사진 파일의 원본 촬영일을 추출하는 함수를 구현한 코드입니다.
+이제 위에서 다룬 내용을 종합하여, Pillow 공식 API와 `ExifTags` 모듈을 사용한 이상적인 코드를 쓸 수 있습니다. 아래 내용은 사진 파일의 원본 촬영일을 추출하는 함수를 구현한 예시 코드입니다.
 
 ```python
 from PIL import Image, ExifTags
@@ -113,7 +114,6 @@ from PIL import Image, ExifTags
 def get_shooting_date(path: str) -> str:
     """
     Pillow의 공식 API와 ExifTags 모듈을 사용하여 사진 파일의 원본 촬영일을 추출합니다.
-    가장 안정적이고 가독성이 높은 Best Practice 코드입니다.
     """
     try:
         with Image.open(path) as img:
@@ -134,8 +134,7 @@ def get_shooting_date(path: str) -> str:
                 # 4. get_ifd()에 포인터의 '태그 ID'를 전달하여 Exif IFD 데이터를 가져옵니다.
                 exif_ifd = exif_data.get_ifd(exif_ifd_pointer_id)
 
-            # 5. 우선순위에 따라 날짜 정보를 탐색합니다.
-            #    (태그 이름, 탐색할 IFD - 0:Main, 1:Exif)
+            # 5. 우선순위에 따라 정보를 탐색합니다. (태그 이름, 탐색할 IFD - 0:Main, 1:Exif)
             tag_priority = [
                 ('DateTimeOriginal', 1),    # 원본 촬영일 (우선도 1순위)
                 ('DateTimeDigitized', 1),   # 디지털화된 날짜 (우선도 2순위)
