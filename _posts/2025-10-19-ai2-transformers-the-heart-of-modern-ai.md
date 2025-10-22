@@ -6,6 +6,7 @@ last_modified_at: 2025-10-21 23:45:00 +0900
 categories: [Artificial Intelligence, Machine Learning]
 tags: [nlp, transformer, encoder, decoder, attention, softmax, resnet, ffn]
 pin: false
+math: true
 ---
 
 지난 포스트 [1부 - 임베딩과 잔차 연결](/posts/ai1-how-does-ai-understand-language/)에서는 각 단어를 '의미가 담긴 숫자'로 바꾸는 **정적 임베딩(Static Embedding)** 과정과, 깊은 신경망의 학습을 가능하게 만든 **잔차 연결(Residual Connection)** 등 핵심 부품 몇몇을 다루었습니다.

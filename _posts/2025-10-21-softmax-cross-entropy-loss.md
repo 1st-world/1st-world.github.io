@@ -6,6 +6,7 @@ last_modified_at: 2025-10-22 13:55:00 +0900
 categories: [Artificial Intelligence, Machine Learning]
 tags: [softmax, cross-entropy]
 pin: false
+math: true
 ---
 
 소프트맥스(Softmax) 함수와 교차 엔트로피 손실(Cross-Entropy Loss)은 머신러닝, 특히 **다중 클래스 분류(Multi-class classification)** 문제에서 사실상 표준처럼 함께 사용되는 한 쌍입니다.
@@ -88,6 +89,7 @@ $$CE = -\sum_{i=1}^{C} t_i \log(p_i)$$
 정답이 '고양이'($t_1=1$)일 때,
 
 $$CE = - ( 1 \cdot \log(p_{\text{고양이}}) + 0 \cdot \log(p_{\text{개}}) + 0 \cdot \log(p_{\text{새}}) )$$
+
 $$CE = - \log(p_{\text{고양이}})$$
 
 즉, **교차 엔트로피 손실은 모델이 '정답'이라고 예측한 확률값에 $-\log$를 취한 것과 같습니다.**

@@ -6,6 +6,7 @@ last_modified_at: 2025-10-21 00:10:00 +0900
 categories: [Artificial Intelligence, Machine Learning]
 tags: [nlp, transformer, vector, token, embedding, gradient, resnet]
 pin: false
+math: true
 ---
 
 ChatGPT, Gemini, Claude 등 현재 AI 모델들은 단순히 정보를 검색하는 것을 넘어, 마치 사람처럼 대화하고 문맥을 이해하며, 새로운 글을 창작하기도 합니다. 어떻게 기계가 이토록 정교하게 '언어'를 다룰 수 있게 된 걸까요?
