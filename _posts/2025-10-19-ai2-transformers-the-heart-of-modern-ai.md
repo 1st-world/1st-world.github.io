@@ -2,14 +2,14 @@
 title: "AI는 어떻게 언어를 이해하는가? (2) - 현대 AI의 심장, 트랜스포머"
 author: 1st-world
 date: 2025-10-19 23:25:00 +0900
-last_modified_at: 2025-10-21 23:45:00 +0900
+last_modified_at: 2025-10-22 23:30:00 +0900
 categories: [Artificial Intelligence, Machine Learning]
-tags: [nlp, transformer, encoder, decoder, attention, softmax, resnet, ffn]
+tags: [nlp, transformer, encoder, decoder, attention, softmax]
 pin: false
 math: true
 ---
 
-지난 포스트 [1부 - 임베딩과 잔차 연결](/posts/ai1-how-does-ai-understand-language/)에서는 각 단어를 '의미가 담긴 숫자'로 바꾸는 **정적 임베딩(Static Embedding)** 과정과, 깊은 신경망의 학습을 가능하게 만든 **잔차 연결(Residual Connection)** 등 핵심 부품 몇몇을 다루었습니다.
+지난 [1부 - 임베딩과 잔차 연결](/posts/ai1-how-does-ai-understand-language/)에서는 각 단어를 '의미가 담긴 숫자'로 바꾸는 **정적 임베딩(Static Embedding)** 과정과, 깊은 신경망의 학습을 가능하게 만든 **잔차 연결(Residual Connection)** 등 핵심 부품 몇몇을 다루었습니다.
 
 이제 이 부품들을 토대로, 현대 AI의 판도를 바꾼 모델 '**트랜스포머(Transformer)**'를 만들어 볼 차례입니다.
 
@@ -90,7 +90,7 @@ math: true
 3. **Value ($V$): 색인 단어에 해당하는 '실제 내용' 또는 '의미'**
     * Key가 성공적으로 매칭되었을 때, Query에게 전달해 줄 '정보(Value) 벡터'입니다.
     * **예:** "animal"의 Value 벡터 → 이 문맥에서 'animal'이 가진 풍부한 의미(예: '그 동물').
-    * **예:** "street"의 Value 벡터 → 이 문맥에서 'street'이 가진 의미('길').
+    * **예:** "street"의 Value 벡터 → 이 문맥에서 'street'가 가진 의미('길').
 
 #### 계산 과정 (Scaled Dot-Product Attention)
 
@@ -105,7 +105,7 @@ math: true
 
 5. 이 가중치(비율)를 각 단어의 $V$에 곱해서 모두 더합니다.
 
-6. **결과:** "it"의 새로운 벡터는 $(0.9 * V_{animal}) + (0.05 * V_{street}) + …$ 처럼, 'animal'의 실제 의미(Value)가 90%나 섞인 '**문맥적 임베딩**'으로 재탄생합니다.
+6. **결과:** "it"의 새로운 벡터는 $(0.9 * V_{animal}) + (0.05 * V_{street}) + …$ 처럼, "animal"의 실제 의미(Value)가 90%나 섞인 **문맥적 임베딩**으로 재탄생합니다.
 
 이 과정은 문장의 모든 단어에 대해 병렬적으로 수행됩니다. "tired"라는 단어 역시 "it"과 "animal"에 높은 가중치를 주겠죠. 이처럼 각 단어의 Query가 전체 단어의 Key, Value를 참조해 자신의 문맥적 임베딩을 계산합니다.
 
@@ -147,7 +147,7 @@ math: true
 
 디코더도 인코더처럼 '셀프 어텐션'을 수행합니다. "I am a"까지 생성했다면, "am"이 "I"를 참고하고 "a"가 "I", "am"을 참고해야 합니다.
 
-**하지만 똑같이 수행한다면 치명적인 문제(Cheating)가 발생합니다.** "I am a student"라는 정답을 학습할 때, "am"을 예측해야 하는 시점에 "a"나 "student"라는 **미래의 정답**을 봐버리게 되는 거죠.
+하지만 **똑같이 수행한다면 치명적인 문제(Cheating)가 발생**합니다. "I am a student"라는 정답을 학습할 때, "am"을 예측해야 하는 시점에 "a"나 "student"라는 **미래의 정답**을 봐버리게 되는 거죠.
 
 그래서 해결책으로 **마스킹(Masking)** 기법을 사용합니다. 비유하자면, 문제를 풀 때 아직 풀지 않은 뒷장의 답안지를 가리는 것과 같습니다. "am"을 예측할 때는 "a"와 "student" 위치에 '마스크'를 씌워 정보가 흐르지 못하게 강제로 차단합니다. 이를 '미래를 보지 않는' **마스크드 셀프 어텐션**이라고 부릅니다.
 
@@ -215,7 +215,7 @@ math: true
 
 이 트랜스포머 아키텍처는 원래의 목적이던 번역을 넘어 수많은 AI 분야의 기반이 되었습니다.
 
-다음 포스트인 3부에서는 이 강력한 트랜스포머 구조를 약간 변형하고(디코더만 사용), 어마어마한 데이터로 학습시켰을 때 어떤 일이 벌어지는지, 즉 '**거대 언어 모델(LLM)**'의 탄생과 그 특징에 대해 알아보겠습니다.
+다음 [3부 - 거대 언어 모델(LLM)의 등장](/posts/ai3-the-emergence-of-llm/)에서는 이 강력한 트랜스포머 구조를 약간 변형하고(Encoder/Decoder-only), 어마어마한 규모의 데이터로 학습시켰을 때 어떤 일이 벌어지는지, '**거대 언어 모델(LLM)**' 탄생 과정과 그 특징에 대해 알아보겠습니다.
 
 ---
 
