@@ -8,7 +8,7 @@ tags: [nlp, llm, rag, rl, rlhf, rlaif]
 pin: false
 ---
 
-지난 [3부 - 거대 언어 모델(LLM)의 등장](/posts/ai3-the-emergence-of-llm/)에서는 트랜스포머 아키텍처와 스케일링 법칙이 만나 '**거대 언어 모델(LLM, Large Language Model)**'이 탄생하는 과정을 살펴보았습니다. 하지만 우리는 동시에 이 강력한 LLM이 가진 한계점도 확인했습니다.
+지난 [3부 - 거대 언어 모델(LLM)의 등장](/posts/ai3-the-emergence-of-llm/)에서는 트랜스포머 아키텍처와 스케일링 법칙이 만나 ‘**거대 언어 모델(LLM, Large Language Model)**’이 탄생하는 과정을 살펴보았습니다. 하지만 우리는 동시에 이 강력한 LLM이 가진 한계점도 확인했습니다.
 
 * **환각(Hallucination):** 그럴듯한 거짓말을 자신 있게 생성합니다.
 
@@ -89,7 +89,7 @@ RAG가 LLM의 '지식' 문제를 해결했다면, **RLHF(R**einforcement **L**ea
 
 초기 LLM은 인터넷의 온갖 데이터를 학습했기 때문에, 종종 편향적이거나, 공격적이거나, 아예 엉뚱한 답변을 내놓기도 했습니다. 따라서 LLM이 '인간이 선호하는 방식'으로 응답하게끔 조정하는 '정렬(Alignment)' 과정이 필요합니다.
 
-RLHF는 이러한 '**정렬**' 처리를 위한 핵심 기술이며, 결과적으로 모델이 '**유용하고, 무해하며, 정직하게(HHH**, **H**elpful, **H**armless, **H**onest)' 행동하도록 유도합니다.
+RLHF는 이러한 ‘**정렬**’ 처리를 위한 핵심 기술이며, 결과적으로 모델이 ‘**유용하고, 무해하며, 정직하게(HHH**, **H**elpful, **H**armless, **H**onest)’ 행동하도록 유도합니다.
 
 ### 강화 학습(Reinforcement Learning)이란?
 

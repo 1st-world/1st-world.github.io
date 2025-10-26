@@ -8,7 +8,7 @@ tags: [nlp, transformer, encoder, decoder, bert, gpt, llm]
 pin: false
 ---
 
-지난 [2부 - 현대 AI의 심장, 트랜스포머](/posts/ai2-transformers-the-heart-of-modern-ai/)에서는 '번역'을 위해 설계된 트랜스포머(Transformer)의 '**인코더-디코더(Encoder-Decoder)**' 구조를 자세히 살펴보았습니다. 인코더는 문맥을 '이해'하고, 디코더는 그 의미를 바탕으로 새로운 문장을 '생성'했죠.
+지난 [2부 - 현대 AI의 심장, 트랜스포머](/posts/ai2-transformers-the-heart-of-modern-ai/)에서는 '번역'을 위해 설계된 트랜스포머(Transformer)의 ‘**인코더-디코더(Encoder-Decoder)**’ 구조를 자세히 살펴보았습니다. 인코더는 문맥을 '이해'하고, 디코더는 그 의미를 바탕으로 새로운 문장을 '생성'했죠.
 
 그런데 과학자들은 곧 이런 생각을 하게 됩니다.
 
@@ -46,12 +46,12 @@ pin: false
 이 접근 방식이 바로 **GPT(Generative Pre-trained Transformer)** 형태이며, 현대 LLM의 주류가 되었습니다. GPT는 트랜스포머의 **디코더 블록 중, 인코더-디코더 어텐션(Cross-Attention) 부분을 제외하고 '마스크드 셀프 어텐션 + 피드 포워드' 구조만** 가져와 깊게 쌓았습니다.
 
 * **학습 방식:** Causal Language Model
-    * 오직 '**다음 단어 맞히기**'만 학습합니다.
+    * 오직 ‘**다음 단어 맞히기**’만 학습합니다.
     * **예:** `"나는 카페에 가서"` → 다음 단어는? `"커피"`
     * **예:** `"나는 카페에 가서 커피를"` → 다음 단어는? `"마셨다"`
 
 * **특징:** 단방향(Uni-directional)
-    * 다음 단어를 예측해야 하므로, 2부에서 살펴본 '**마스크드 셀프 어텐션(Masked Self-Attention)**'을 사용합니다. 즉, 예측할 시점의 **미래 단어를 볼 수 없습니다.**
+    * 다음 단어를 예측해야 하므로, 2부에서 살펴본 ‘**마스크드 셀프 어텐션(Masked Self-Attention)**’을 사용합니다. 즉, 예측할 시점의 **미래 단어를 볼 수 없습니다.**
 
 * **주 용도:** 챗봇, 요약, 번역, 코드 생성 등
     * 무언가를 '생성'하는 작업(NLG)에 압도적인 성능을 보여줍니다. ChatGPT 등이 이 구조를 따릅니다.
@@ -66,7 +66,7 @@ GPT와 같은 'Decoder-only' 모델을 만들었지만, 초기에는 그저 "다
 
 "모델을 더 크게 만들고 데이터를 더 많이 학습시키면, 성능이 계속 좋아질까?"
 
-OpenAI 등 여러 연구소는 막대한 자본을 투입해 실험에 돌입했고, 그 결과로 2020년에 발표한 논문 "[Scaling Laws for Neural Language Models](https://arxiv.org/abs/2001.08361)"에서 '**스케일링 법칙**'을 제시합니다.
+OpenAI 등 여러 연구소는 막대한 자본을 투입해 실험에 돌입했고, 그 결과로 2020년에 발표한 논문 "[Scaling Laws for Neural Language Models](https://arxiv.org/abs/2001.08361)"에서 ‘**스케일링 법칙**’을 제시합니다.
 
 * **내용:** 모델의 성능(손실/Loss)은 **모델의 크기(파라미터 수), 데이터셋의 크기, 학습에 사용된 컴퓨팅 파워(총 연산량, FLOPs)라는 3가지 요소에 대해 예측 가능한 멱함수(Power Law) 관계를 따른다**는 것입니다.
 
@@ -78,7 +78,7 @@ OpenAI 등 여러 연구소는 막대한 자본을 투입해 실험에 돌입했
 
 "양(Quantity)이 질(Quality)을 만든다."
 
-스케일링 법칙에 따라 모델을 무작정 키우던 중, 더 놀라운 현상이 발견됩니다. 2022년에 발표된 논문 "[Emergent Abilities of Large Language Models](https://arxiv.org/abs/2206.07682)"에서 '**창발적 능력**'을 제시한 것입니다.
+스케일링 법칙에 따라 모델을 무작정 키우던 중, 더 놀라운 현상이 발견됩니다. 2022년에 발표된 논문 "[Emergent Abilities of Large Language Models](https://arxiv.org/abs/2206.07682)"에서 ‘**창발적 능력**’을 제시한 것입니다.
 
 * **내용:** 작은 모델에서는 거의 무작위 수준(Random-level)에 머물던 특정 능력들이, 모델 크기가 **어느 임계점(Threshold)을 넘어서는 순간 갑자기 유의미한 성능으로 급등**하는 현상입니다.
 
@@ -137,7 +137,7 @@ OpenAI 등 여러 연구소는 막대한 자본을 투입해 실험에 돌입했
     Love
     ```
 
-이러한 **'인-컨텍스트 러닝(In-Context Learning)'** 능력 덕분에, 우리는 LLM을 마치 사람에게 일을 시키듯 '프롬프트(Prompt)'만으로 활용할 수 있게 되었습니다. 이 접근법은 2020년 GPT-3 논문 "[Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)"에서 **Zero-shot, Few-shot Learning**이라는 이름으로 널리 알려졌습니다.
+이러한 ‘**인-컨텍스트 러닝(In-Context Learning)**’ 능력 덕분에, 우리는 LLM을 마치 사람에게 일을 시키듯 '프롬프트(Prompt)'만으로 활용할 수 있게 되었습니다. 이 접근법은 2020년 GPT-3 논문 "[Language Models are Few-Shot Learners](https://arxiv.org/abs/2005.14165)"에서 **Zero-shot, Few-shot Learning**이라는 이름으로 널리 알려졌습니다.
 
 ---
 
