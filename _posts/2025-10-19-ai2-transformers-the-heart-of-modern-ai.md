@@ -4,7 +4,7 @@ author: 1st-world
 date: 2025-10-19 23:25:00 +0900
 last_modified_at: 2025-10-22 23:30:00 +0900
 categories: [Artificial Intelligence, Machine Learning]
-tags: [nlp, transformer, encoder, decoder, attention, softmax]
+tags: [nlp, transformer, embedding, encoder, decoder, attention, softmax]
 pin: false
 math: true
 ---
@@ -53,7 +53,7 @@ math: true
 
 * **결과:** `[[Vector('나'), Vector(1번째)], [Vector('학생'), Vector(3번째)], …]`
 
-* **비유:** '나'라는 단어에 1번가, '학생'이라는 단어에 3번가라는 **주소 태그**를 붙여주는 것입니다. 이제 모델은 "1번가에 있는 '나'"와 "3번가에 있는 '학생'"을 구분할 수 있게 됩니다.
+* **비유:** '나'라는 단어에 1번가, '학생'이라는 단어에 3번가라는 **주소 태그**를 붙여주는 것입니다. 이제 모델은 “1번가에 있는 '나'”와 “3번가에 있는 '학생'”을 구분할 수 있게 됩니다.
 
 > **위치 인코딩의 구현**
 >

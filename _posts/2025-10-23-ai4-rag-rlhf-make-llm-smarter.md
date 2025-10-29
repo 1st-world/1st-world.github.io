@@ -2,7 +2,7 @@
 title: "AI는 어떻게 언어를 이해하는가? (4) - LLM을 더 똑똑하게 만드는 RAG & RLHF"
 author: 1st-world
 date: 2025-10-23 23:20:00 +0900
-last_modified_at: 2025-10-26 23:35:00 +0900
+last_modified_at: 2025-10-27 23:35:00 +0900
 categories: [Artificial Intelligence, Machine Learning]
 tags: [nlp, llm, rag, rl, rlhf, rlaif]
 pin: false
@@ -159,7 +159,7 @@ Anthropic의 'CAI(Constitutional AI)'가 대표적인 예입니다. 이 방식�
 
 하지만 AI가 생성하는 것은 텍스트만이 아니죠. 우리가 보는 'AI가 그린 그림'은 어떻게 만들어질까요?
 
-다음 5부 - VAE, GAN, Diffusion에서는 생성형 AI의 또 다른 큰 축인 **이미지 생성 모델**(AutoEncoder, VAE, GAN, Diffusion)의 세계로 들어가 보겠습니다.
+다음 [5부 - VAE, GAN, Diffusion](/posts/ai5-how-ai-generates-the-world/)에서는 생성형 AI의 또 다른 큰 축인 **이미지 생성 모델**(AutoEncoder, VAE, GAN, Diffusion)의 세계로 들어가 보겠습니다.
 
 ---
 
