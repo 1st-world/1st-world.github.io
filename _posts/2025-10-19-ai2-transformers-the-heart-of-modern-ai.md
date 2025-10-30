@@ -71,7 +71,7 @@ math: true
 "The animal didn't cross the street because **it** was too tired."  
 (그 동물은 길을 건너지 않았다, 왜냐하면 **그것**이 너무 피곤했기 때문이다.)
 
-여기서 "**it**"은 "animal"일까요, "street"일까요? 사람은 "피곤한" 주체가 "동물"이라는 것을 바로 알죠.  
+여기서 “**it**”은 "animal"일까요, "street"일까요? 사람은 "피곤한" 주체가 "동물"이라는 것을 바로 알죠.  
 셀프 어텐션은 "it"이라는 단어가 문장 내 다른 단어들("animal", "street", "tired", …)을 쭉 훑어본 후 "아, 'it'은 'animal'과 90%만큼 관련 있고 'street'와는 5%만큼 관련 있구나"처럼 관계의 '가중치'를 계산합니다.
 
 #### 어떻게 계산할까요? ($Q$, $K$, $V$)
