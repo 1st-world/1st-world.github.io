@@ -3,7 +3,7 @@ title: "Pillow로 EXIF 데이터를 불러오는 올바른 방법"
 author: 1st-world
 date: 2025-10-15 01:30:00 +0900
 last_modified_at: 2025-10-20 01:10:00 +0900
-categories: [Python]
+categories: [Development, Python]
 tags: [pillow, ifd, exif, datetime]
 pin: false
 ---

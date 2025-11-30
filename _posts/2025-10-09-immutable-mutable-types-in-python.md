@@ -3,7 +3,7 @@ layout: post
 title:  "Python에서 immutable, mutable 타입"
 author: 1st-world
 date: 2025-10-09 23:00:00 +0900
-categories: Python
+categories: [Development, Python]
 tags: [type, mutable, immutable]
 ---
 
