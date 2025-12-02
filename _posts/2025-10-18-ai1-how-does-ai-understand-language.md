@@ -142,8 +142,3 @@ AI에게 특정 문장(예: "AI는 언어를 이해한다")을 가르치려면, 
 * **잔차 연결(Residual Connection):** 기울기 소실을 해결하고 신경망을 깊이 학습시킬 수 있게 한 방법
 
 다음 [2부 - 현대 AI의 심장, 트랜스포머](/posts/ai2-transformers-the-heart-of-modern-ai/)에서는 이 두 가지 핵심 부품을 토대로, 현존하는 거의 모든 LLM의 심장부라 할 수 있는 **'트랜스포머(Transformer)'** 구조에 관하여 본격적으로 살펴보겠습니다.
-
----
-
-> _이 글의 초안은 ChatGPT, Gemini 등 AI와 주고받은 질의응답 내용을 토대로 작성되었습니다._
-{: .prompt-info }

@@ -138,8 +138,3 @@ $$CE = - \log(p_{\text{고양이}})$$
 * **TensorFlow:** `tf.keras.losses.CategoricalCrossentropy(from_logits=True)`
 
 따라서 개발자가 모델을 설계할 때, 모델의 **최종 출력으로 원시 점수(로짓)를 그대로** 내보내고, 이 로짓을 위와 같은 **결합된 손실 함수에 입력**하는 것이 표준입니다. (즉, 소프트맥스 활성화 함수를 별도로 적용하지 않습니다.)
-
----
-
-> _이 글의 초안은 ChatGPT, Gemini 등 AI와 주고받은 질의응답 내용을 토대로 작성되었습니다._
-{: .prompt-info }

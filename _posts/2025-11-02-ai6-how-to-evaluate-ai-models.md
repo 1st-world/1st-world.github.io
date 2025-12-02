@@ -4,7 +4,7 @@ author: 1st-world
 date: 2025-11-02 17:15:00 +0900
 last_modified_at: 2025-11-08 11:20:00 +0900
 categories: [Artificial Intelligence, Machine Learning]
-tags: [confusion-matrix, accuracy, precision, recall, sensitivity, f1, pr-curve, roc-curve]
+tags: [confusion-matrix, accuracy, precision, recall, f1-score, pr-curve, roc-curve]
 pin: false
 math: true
 ---
@@ -317,8 +317,3 @@ AI를 개발하고 평가하는 것은 결국 우리가 **'무엇을 해결하�
 * [3부 - 거대 언어 모델(LLM)의 등장](/posts/ai3-the-emergence-of-llm/)
 * [4부 - LLM을 더 똑똑하게 만드는 RAG & RLHF](/posts/ai4-rag-rlhf-make-llm-smarter/)
 * [5부 - VAE, GAN, Diffusion](/posts/ai5-how-ai-generates-the-world/)
-
----
-
-> _이 글의 초안은 ChatGPT, Gemini 등 AI와 주고받은 질의응답 내용을 토대로 작성되었습니다._
-{: .prompt-info }

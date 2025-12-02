@@ -337,8 +337,3 @@ $$\tilde{\epsilon}_\theta = \epsilon_{\theta}(\text{“”}) + w \cdot (\epsilon
 그렇다면 이 모델들이 "얼마나 좋은지", "얼마나 정확한지"는 어떻게 알 수 있을까요?
 
 다음 [6부 - AI 평가의 핵심 지표](/posts/ai6-how-to-evaluate-ai-models/)에서는 Accuracy, Precision, Recall, F1, ROC/AUC 등 **AI 모델을 '평가'하는 지표들**에 관해 알아보면서 길고 길었던 본 시리즈의 여정을 마치도록 하겠습니다.
-
----
-
-> _이 글의 초안은 ChatGPT, Gemini 등 AI와 주고받은 질의응답 내용을 토대로 작성되었습니다._
-{: .prompt-info }

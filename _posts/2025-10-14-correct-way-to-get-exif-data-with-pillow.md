@@ -4,7 +4,7 @@ author: 1st-world
 date: 2025-10-15 01:30:00 +0900
 last_modified_at: 2025-10-20 01:10:00 +0900
 categories: [Development, Python]
-tags: [pillow, ifd, exif, datetime]
+tags: [python, pillow, ifd, exif, datetime]
 pin: false
 ---
 
@@ -163,9 +163,4 @@ def get_shooting_date(path: str) -> str:
 
 ```
 
-이 코드는 내부용 함수 `_getexif()`에 의존하지 않으면서, 매직 넘버를 제거하여 가독성과 유지보수성을 높이고 Pillow 라이브러리의 의도된 동작 방식을 정확히 따르는 안정적인 방법입니다.
-
----
-
-> _이 글의 초안은 ChatGPT, Gemini 등 AI와 주고받은 질의응답 내용을 토대로 작성되었습니다._
-{: .prompt-info }
+이 코드는 내부용 함수 `_getexif()`에 의존하지 않으면서, 매직 넘버를 제거하여 가독성과 유지보수성을 높이고 Pillow 라이브러리의 의도된 동작 방식을 따르는 안정적인 방법입니다.

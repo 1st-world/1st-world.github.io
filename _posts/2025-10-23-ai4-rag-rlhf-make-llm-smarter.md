@@ -157,8 +157,3 @@ Anthropic의 'CAI(Constitutional AI)'가 대표적인 예입니다. 이 방식�
 하지만 AI가 생성하는 것은 텍스트만이 아니죠. 우리가 보는 'AI가 그린 그림'은 어떻게 만들어질까요?
 
 다음 [5부 - VAE, GAN, Diffusion](/posts/ai5-how-ai-generates-the-world/)에서는 생성형 AI의 또 다른 큰 축인 **이미지 생성 모델**(AutoEncoder, VAE, GAN, Diffusion)의 세계로 들어가 보겠습니다.
-
----
-
-> _이 글의 초안은 ChatGPT, Gemini 등 AI와 주고받은 질의응답 내용을 토대로 작성되었습니다._
-{: .prompt-info }
