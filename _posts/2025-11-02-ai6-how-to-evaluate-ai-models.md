@@ -57,7 +57,7 @@ math: true
     * **실제 = O(암)** / **예측 = X(암이 아님)**
     * 모델이 '암'을 '정상'이라고 **잘못** 예측했습니다. (이 상황에서 **가장 치명적인 오류**)
 
-#### Python 코드로 확인하기
+#### Python 코드로 구현하기
 
 ```python
 from sklearn.metrics import confusion_matrix
@@ -83,9 +83,9 @@ print(tn, fp, fn, tp)  # 5, 2, 1, 2
 
 * **정의:** 모델이 전체 데이터 중에서 얼마나 정확하게 예측했는가?
 * **계산:** $(TP + TN) \div (TP + TN + FP + FN)$
-* **의미:** "전체 중 맞힌 개수". 가장 직관적이지만, 앞서 언급한 '스팸 메일' 예시처럼 데이터가 **불균형(Imbalanced)**할 경우(예: 99%가 정상, 1%가 불량) 이 지표는 심각하게 왜곡될 수 있습니다.
+* 가장 직관적이지만, 앞서 언급한 '스팸 메일' 예시처럼 데이터가 **불균형(Imbalanced)**할 경우(예를 들어 99%는 '정상'이고 1%만 '스팸'일 때) 이 지표는 심각하게 왜곡될 수 있다는 문제가 있습니다.
 
-#### Python 코드로 확인하기
+#### Python 코드로 구현하기
 
 ```python
 from sklearn.metrics import accuracy_score
@@ -107,14 +107,14 @@ print(f"정확도: {acc:.2f}")  # 정확도: 0.70
 
 ### 🎯 정밀도(Precision)
 
-* **정의:** 모델이 "Positive(암)"라고 예측한 것들 중에서, **실제로 Positive(암)였던** 비율은?
+* **정의:** 모델이 "Positive(암)"라고 예측한 것들 중에서 **실제로 Positive(암)였던** 비율
 * **계산:** $TP \div (TP + FP)$
-* **관점:** 모델의 **'예측'** 관점 ("내가 '암'이라고 진단한 환자들, 얼마나 정확하지?")
+* 모델의 **'예측'** 관점입니다. ("내가 '암'이라고 진단한 환자들, 얼마나 정확하지?")
 * **FP(False Positive)가 치명적일 때** 중요합니다.
     * **예시:** 스팸 메일 필터
     * 정상 메일(Negative)을 스팸(Positive)으로 잘못 예측하면(FP), 사용자는 중요한 메일을 놓칠 수 있습니다. 따라서 모델은 **정말 확실한 스팸만 잡도록** 예측해야 합니다. (차라리 스팸 몇 개를 놓치더라도)
 
-#### Python 코드로 확인하기
+#### Python 코드로 구현하기
 
 ```python
 from sklearn.metrics import precision_score
@@ -130,14 +130,14 @@ print(f"정밀도: {prec:.2f}")  # 정밀도: 0.50
 
 ### 🎣 재현율(Recall) / 민감도(Sensitivity) / TPR
 
-* **정의:** 실제 Positive(암)인 것들 중에서, **모델이 "Positive(암)"라고 예측해낸** 비율은?
+* **정의:** 실제 Positive(암)인 것들 중에서 **모델이 "Positive(암)"라고 예측해낸** 비율
 * **계산:** $TP \div (TP + FN)$
-* **관점:** 실제 **'정답'** 관점 ("실제 '암' 환자들 중, 내가 몇 명이나 찾아냈지?")
+* 실제 **'정답'** 관점입니다. ("실제 '암' 환자들 중, 내가 몇 명이나 찾아냈지?")
 * **FN(False Negative)이 치명적일 때** 중요합니다.
     * **예시:** 암 진단 AI
     * 실제 암 환자(Positive)를 정상(Negative)으로 잘못 예측하면(FN), 환자는 치료 시기를 놓쳐 생명을 잃을 수 있습니다. 따라서 모델은 **단 한 명의 암 환자라도 놓치지 않도록** 최대한 많이 찾아내야 합니다. (차라리 정상인을 암 환자라고 잘못 진단하더라도)
 
-#### Python 코드로 확인하기
+#### Python 코드로 구현하기
 
 ```python
 from sklearn.metrics import recall_score
@@ -157,18 +157,18 @@ print(f"재현율: {rec:.2f}")  # 재현율: 0.67
 
 정밀도(Precision)와 재현율(Recall)은 한쪽이 올라가면 다른 쪽이 내려가는 **Trade-off** 관계입니다.
 
-* 암 진단을 위해 "조금이라도 이상하면 다 '암'이라고 해!" (FP 증가)
+* 암 진단을 위해 "조금이라도 이상하면 다 '암'이라고 해!" → FP 증가
     * 재현율(Recall) ↑ / 정밀도(Precision) ↓
-* 스팸 필터를 위해 "100% 확실한 스팸만 '스팸'이라고 해!" (FN 증가)
+* 스팸 필터를 위해 "100% 확실한 스팸만 '스팸'이라고 해!" → FN 증가
     * 정밀도(Precision) ↑ / 재현율(Recall) ↓
 
 개발자는 이 두 값 사이에서 적절한 균형점을 찾아야 하며, 두 지표를 하나의 숫자로 요약한 것이 **F1 Score**입니다.
 
-* **정의:** 정밀도와 재현율의 **'조화 평균(Harmonic Mean)'**
+* **정의:** 정밀도와 재현율의 **조화 평균(Harmonic Mean)**
 * **계산:** $2 \times \frac{Precision \times Recall}{Precision + Recall}$
-* **의미:** 단순 평균이 아닌 '조화 평균'을 사용하는 이유는, 두 지표 중 **어느 한쪽이라도 0점에 가까우면 F1 Score 역시 0점에 가깝게** 만드는, 즉 '극단적인 불균형에 큰 페널티'를 주기 위함입니다. 모델이 양쪽 모두에서 준수한 성능을 낼 때 F1 Score가 높게 나옵니다.
+* **의미:** 단순 평균이 아닌 '조화 평균'을 사용하는 이유는, 두 지표 중 어느 한쪽이라도 0점에 가까우면 F1 Score 역시 0점에 가깝게 만드는, 즉 **극단적인 불균형에 큰 페널티**를 주기 위함입니다. 모델이 양쪽 모두에서 준수한 성능을 낼 때 F1 Score가 높게 나옵니다.
 
-#### Python 코드로 확인하기
+#### Python 코드로 구현하기
 
 ```python
 from sklearn.metrics import f1_score
@@ -186,22 +186,24 @@ print(f"F1 Score: {f1:.2f}")  # F1 Score: 0.57
 
 ## 5. 성능의 전체 그림: PR Curve, ROC Curve
 
-모델은 "이 환자는 95% 확률로 암입니다", "이 환자는 30% 확률로 암입니다"처럼 '확률'을 출력합니다. 여기서 우리는 "몇 %부터 '암'이라고 판단할까?"라는 **'임계값(Threshold)'**을 정해야 합니다.
+모델은 "이 환자는 95% 확률로 암입니다", "이 환자는 30% 확률로 암입니다"처럼 '확률'을 출력합니다. 여기서 우리는 "몇 %부터 암이라고 판단할까?"라는 **'임계값(Threshold)'**을 정해야 합니다.
 
-* 임계값 = 90% (매우 보수적): 정밀도 ↑, 재현율 ↓
-* 임계값 = 10% (매우 공격적): 정밀도 ↓, 재현율 ↑
+* 임계값을 90%(매우 보수적)로 설정 시: 정밀도 ↑ / 재현율 ↓
+* 임계값을 10%(매우 공격적)로 설정 시: 정밀도 ↓ / 재현율 ↑
 
-모델의 성능은 이 '임계값'에 따라 달라집니다. **PR Curve**과 **ROC Curve**은 이 '모든 임계값의 변화'에 따른 모델의 성능을 한눈에 보여주는 그래프입니다.
+모델의 성능은 임계값에 따라 달라집니다. **PR Curve**과 **ROC Curve**은 이러한 '모든 임계값의 변화'에 따른 모델의 성능을 한눈에 보여주는 그래프입니다.
 
 ### 📈 PR(Precision-Recall) Curve
 
 * **X축:** 재현율(Recall)
 * **Y축:** 정밀도(Precision)
-* **해석:** 그래프가 **우측 상단(Precision=1, Recall=1)에 최대한 붙을수록** 좋은 모델입니다.
-* **활용 시기:** **불균형 데이터셋**을 평가할 때 가장 신뢰할 수 있는 지표입니다. Accuracy가 왜곡될 수 있는 상황에서 TN을 무시하고 나머지 Positive 클래스에만 집중합니다.
-* **AUC-PR:** PR Curve의 **'아래 면적(Area Under Curve)'**을 **AP(Average Precision)**라고도 부르며, 1에 가까울수록 좋습니다.
+* **해석:** 그래프가 **우측 상단(Precision = 1, Recall = 1)에 최대한 붙을수록** 좋은 모델입니다.
+* **불균형 데이터셋**을 평가할 때 가장 신뢰할 수 있는 지표입니다. 정확도(Accuracy)가 왜곡될 수 있는 상황에서 TN을 무시하고 나머지 Positive 클래스에만 집중합니다.
+* **AUC-PR**
+    * PR Curve의 **'아래 면적(Area Under Curve)'**을 의미하며, **AP(Average Precision)**라고도 부릅니다.
+    * 1에 가까울수록 좋은 모델입니다.
 
-#### Python 코드로 확인하기
+#### Python 코드로 구현하기
 
 ```python
 from sklearn.metrics import precision_recall_curve, average_precision_score
@@ -233,19 +235,22 @@ plt.show()
 
 * **X축:** FPR(False Positive Rate / 위양성률)
     * $FPR = FP \div (FP + TN)$
-    * "실제 '정상'인 사람들 중, 모델이 '암'이라고 잘못 예측한 비율" (1 - 특이도)
+    * "실제 '정상'인 사람들 중, 모델이 '암'이라고 잘못 예측한 비율"입니다. (1 - 특이도)
+
 * **Y축:** TPR(True Positive Rate / 진양성률)
     * $TPR = TP \div (TP + FN)$
-    * 이것은 '재현율(Recall)'과 완전히 동일한 값입니다.
-* **해석:** 그래프가 **좌측 상단(FPR=0, TPR=1)에 최대한 붙을수록** 좋은 모델입니다.
+    * 이 값은 '재현율(Recall)'과 완전히 동일합니다.
+
+* **해석:** 그래프가 **좌측 상단(FPR = 0, TPR = 1)에 최대한 붙을수록** 좋은 모델입니다.
     * (0, 1): 모든 정상인을 정상이라 판단함과 동시에 모든 암 환자를 찾아내는, 궁극의 목표 지점
+
 * **AUC(Area Under Curve)**
     * ROC Curve의 **'아래 면적'**을 의미하며, 모델 평가에 가장 널리 쓰이는 단일 지표 중 하나입니다.
     * **AUC = 1.0:** 완벽한 모델
     * **AUC = 0.5:** 쓸모없는 모델 (무작위 선택 모델과 같으며, 그래프는 대각선으로 출력)
     * **AUC < 0.5:** 반대로 예측하는 모델 (예측 결과를 뒤집으면 해결)
 
-#### Python 코드로 확인하기
+#### Python 코드로 구현하기
 
 ```python
 from sklearn.metrics import roc_curve, roc_auc_score
@@ -278,15 +283,16 @@ plt.show()
 
 ## 6. 그 외 지표 (FNMR 등)
 
-* **FNMR(False Non-Match Rate):**
-    * "본인(Match)인데, 본인이 아니다(Non-Match)라고 잘못 판단한 비율"
-    * 이것은 안면 인식이나 지문 인식(Biometrics) 관련 도메인에서 사용되는 용어일 뿐, 본질은 **FN(False Negative)**입니다. 즉, FNMR은 **FNR(False Negative Rate)**과 같습니다. ($FNR = FN \div (FN + TP)$)
+* **FNMR(False Non-Match Rate)**
+    * "본인(Match)인데, 본인이 아니다(Non-Match)"라고 잘못 판단한 비율입니다.
+    * 안면 인식, 지문 인식 등 Biometrics 관련 도메인에서 사용되는 용어인데, 본질은 **FN(False Negative)**입니다. 즉, FNMR은 **FNR(False Negative Rate)**과 같습니다.
+    * $FNR = FN \div (FN + TP)$
 
-#### Python 코드로 확인하기
+#### Python 코드로 구현하기
 
 ```python
-# `scikit-learn`에는 `fnr_score`가 따로 있진 않지만 `recall_score`(TPR)를 이용해 계산할 수 있습니다.
-# `FNR = 1 - TPR`이므로, `FNMR = 1 - recall_score(y_true, y_pred)`입니다.
+# `scikit-learn`에는 `fnr_score`가 따로 있진 않지만 `recall_score`(TPR)를 통해 계산 가능
+# `FNR = 1 - TPR`이므로, `FNMR = 1 - recall_score(y_true, y_pred)`
 from sklearn.metrics import recall_score
 
 y_true = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1]
@@ -308,7 +314,7 @@ print(f"FNR (FNMR): {fnr:.2f}")  # FNR (FNMR): 0.33
   * 암을 진단해야 한다면 '정확도(Accuracy)'가 99%여도 '재현율(Recall)'이 50%라면 그 모델은 재앙입니다.
   * 스팸 필터를 만든다면 '재현율(Recall)'이 100%여도 '정밀도(Precision)'가 30%라면 사용자는 그 메일 시스템을 쓰지 않을 것입니다.
 
-AI를 개발하고 평가하는 것은 결국 우리가 **'무엇을 해결하고 싶은지'**라는 문제 정의로 다시 돌아옵니다. 이 6편의 시리즈가 AI라는 거대한 세계를 탐험하는 데 유용한 길잡이가 되었기를 바랍니다.
+AI를 개발하고 평가하는 것은 결국 우리가 **'무엇을 해결하고 싶은지'**라는 문제 정의로 다시 돌아오게 됩니다. 이 6편의 시리즈가 AI라는 거대한 세계를 탐험하는 데 유용한 길잡이가 되었기를 바랍니다.
 
 ### ⏪ 본 시리즈 다시 보기
 
