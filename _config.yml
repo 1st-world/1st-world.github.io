@@ -59,7 +59,7 @@ social:
 # Site Verification Settings
 # Google, Bing 등 검색 엔진에 블로그 등록 및 소유권 인증 시 설정
 webmaster_verifications:
-  google: AHACrK4q30xBYuNyRkXzOXxYTVA5dRBlJTCSjSoU_xE
+  google: # fill in your Google verification code
   bing: # fill in your Bing verification code
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code
@@ -127,8 +127,8 @@ toc: true
 # 댓글 기능 설정
 comments:
   # Global switch for the post-comment system. Keeping it empty means disabled.
-  # 사용할 댓글 시스템 선택 (공식 샘플은 giscus 사용: https://giscus.app/ko)
-  provider: # [disqus | utterances | giscus]
+  # 사용할 댓글 시스템 선택 (disqus | utterances | giscus)
+  provider: giscus
   # The provider options are as follows:
   disqus:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
@@ -138,13 +138,13 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: # <gh-username>/<repo> # 댓글이 저장될 GitHub 저장소 (e.g., '아이디/저장소 이름')
-    repo_id: # giscus 설정 페이지에서 발급
-    category: # giscus 설정 페이지에서 발급
-    category_id: # giscus 설정 페이지에서 발급
+    repo: 1st-world/1st-world.github.io # <gh-username>/<repo> # 댓글이 저장될 GitHub 저장소 (e.g., '아이디/저장소 이름')
+    repo_id: R_kgDOQAjgrA # giscus 설정 페이지에서 발급
+    category: Comments # giscus 설정 페이지에서 발급
+    category_id: DIC_kwDOQAjgrM4Czf30 # giscus 설정 페이지에서 발급
     mapping: # optional, default to 'pathname'
     strict: # optional, default to '0'
-    input_position: # optional, default to 'bottom'
+    input_position: top # optional, default to 'bottom'
     lang: # optional, default to the value of `site.lang`
     reactions_enabled: # optional, default to the value of `1`
 
