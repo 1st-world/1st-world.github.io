@@ -4,7 +4,7 @@ author: 1st-world
 date: 2025-10-11 23:30:00 +0900
 last_modified_at: 2025-10-12 20:10:00 +0900
 categories: [Blogging]
-tags: [tutorial, github-pages, jekyll, chirpy]
+tags: [tutorial, github, github-pages, jekyll, chirpy]
 pin: false
 ---
 
