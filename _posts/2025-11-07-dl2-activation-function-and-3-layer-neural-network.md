@@ -2,9 +2,9 @@
 title: "딥러닝 맛보기 (2) - 활성화 함수와 3층 신경망 구현"
 author: 1st-world
 date: 2025-11-07 22:30:00 +0900
-last_modified_at: 2026-04-02 22:05:00 +0900
+last_modified_at: 2026-04-02 22:35:00 +0900
 categories: [Artificial Intelligence, Machine Learning]
-tags: [sigmoid, relu, softmax]
+tags: [sigmoid, relu, softmax, forward-propagation]
 pin: false
 math: true
 ---
@@ -13,7 +13,7 @@ math: true
 
 하지만 퍼셉트론의 단순한 '0 또는 1' 스위치(계단 함수)만으로 실제 복잡한 문제들을 해결하기에는 한계가 극명합니다. 신경망이 더 똑똑하게 '생각'하려면 더 유연한 부품이 필요합니다.
 
-이 글에서는 신경망의 핵심 부품인 **활성화 함수(Activation Function)**란 무엇이며, 왜 필요한지 알아봅니다. 그리고 NumPy를 이용해 3층 신경망의 **순전파(Forward Propagation)** 과정을 코드로 구현해 봅니다.
+이번 글에서는 신경망의 핵심 부품인 **활성화 함수(Activation Function)**란 무엇이며, 왜 필요한지 알아봅니다. 그리고 NumPy를 이용해 3층 신경망의 **순전파(Forward Propagation)** 과정을 코드로 구현해 봅니다.
 
 ---
 
