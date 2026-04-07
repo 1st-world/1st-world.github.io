@@ -37,7 +37,7 @@ github:
 
 twitter:
   # 내 Twitter 아이디 입력 (계정이 없거나 입력하기 싫으면 무시)
-  username: 
+  username:
 
 social:
   # Change to your full name.
@@ -119,7 +119,7 @@ avatar: /assets/img/1st-world.png
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
 # 카카오톡, 페이스북 등 소셜 서비스로 블로그 링크 공유 시 표시할 대표 이미지
-social_preview_image: # string, local or CORS resources
+social_preview_image: /assets/img/1st-world.png
 
 # boolean type, the global switch for TOC in posts.
 toc: true
